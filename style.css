@@ -18,13 +18,26 @@ header {
   justify-content: center;
   align-items: center;
 }
-.banner .banner-title h1 {
+h1 {
   font-weight: bold;
   font-size: 64px;
   line-height: 80px;
   color: #fff;
   padding-left: 152px;
 }
+.banner-title {
+  position: relative;
+  animation: animate 1s linear 0.5s;
+}
+@keyframes animate {
+  from {
+    left: -140px;
+  }
+  to {
+    left: 10px;
+  }
+}
+
 .banner .banner-title button {
   background: #e02c6d;
   padding: 10px 24px;
@@ -39,27 +52,199 @@ header {
   padding-right: 150px;
   padding-top: 153px;
   padding-left: 106px;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+.banner .banner-img:hover img {
+  transform: scale(1.3);
 }
 
 /* player section  */
 section {
-  overflow: hidden;
   margin-top: 70px;
 }
 .player-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 330px);
   grid-row-gap: 27px;
+  grid-column-gap: 30px;
   justify-items: center;
-  align-items: center;
+  margin-left: 180px;
 }
 .player {
   width: 330px;
   height: 474px;
   background: #ffffff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.player:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+  cursor: pointer;
 }
 .player-section .player img {
   width: 300px;
   height: 256px;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+.player img:hover {
+  transform: scale(1.2);
+}
+.player-detail {
+  padding: 0 15px;
+}
+.player-detail h2 {
+  color: #18191f;
+  font-size: 28px;
+  line-height: 40px;
+  margin-top: 16px;
+}
+.detail {
+  color: #6c6c6c;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+/*-----------------
+   News Section
+ ---------------------  */
+.news {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 1rem;
+}
+#news {
+  color: #2d25a0;
+  margin-left: -9rem;
+  font-size: 50px;
+  font-weight: bold;
+}
+.left {
+  padding-right: 1rem;
+}
+.news-banner {
+  height: 400px;
+  width: 800px;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.438),
+      rgba(54, 17, 17, 0.418)
+    ),
+    url(images/_119341115_.jpg);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+.news-banner:hover {
+  width: 830px;
+  height: 430px;
+}
+
+.left .title {
+  background: rgba(0, 0, 0, 0.562);
+  color: rgba(252, 252, 252, 0.87);
+  margin-top: -70px;
+}
+.right {
+  border: 15px solid #2d25a0;
+}
+.news-detail {
+  margin: 2rem;
+}
+.news-detail a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.news-detail p {
+  padding-top: 2rem;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+}
+.btn a {
+  position: relative;
+  padding: 10px 60px;
+  line-height: 48px;
+  background: #2d25a0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgba(206, 199, 199, 0.678);
+  border-radius: 20px;
+  margin-top: 2rem;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+.btn a:hover {
+  color: #fff;
+  transform: scale(1.3);
+  box-shadow: 2px 2px 10px #4a4770;
+}
+
+/* Featured Matchs  */
+.match {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+.match .vdo {
+  transition: transform 0.8s ease-in-out;
+}
+.match .vdo:hover {
+  transform: scale(1.2);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+}
+
+/*----------------
+ Footer Section 
+ --------------- */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 158px;
+  margin-bottom: 63px;
+}
+
+footer .icon img {
+  width: 483.87px;
+  height: 110px;
+}
+footer .social-icon img {
+  height: 32px;
+  width: 32px;
+  padding-right: 14px;
+  margin-bottom: 20px;
+}
+
+/* Media Query  */
+
+/* Mobile Devices */
+@media only screen and (max-width: 688px) {
+  header{
+    width: 100%;
+    background-size: cover;
+  }
+  .banner,.news,.match,footer{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .player-section{
+    margin-left: 2px;
+    grid-template-columns: 1fr;
+    margin-top: 20rem;
+  }
+  footer{
+    margin-bottom: 5rem;
+  }
 }
